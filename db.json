@@ -1,25 +1,18 @@
 {
   "logs": [
     {
-      "id": 1,
       "message": "Changed hard drive on workstation 005",
-      "attention": false,
-      "date": "03-2-2019",
-      "tech": "Sam Smith"
-    },
-    {
-      "id": 2,
-      "message": "Worksation 007 not working",
       "attention": true,
-      "date": "03-2-2019",
-      "tech": "John Doe"
+      "teck": "John Doe",
+      "date": "2021-05-07T16:31:56.547Z",
+      "id": 1
     },
     {
-      "id": 3,
-      "message": "Changed memmory on worksation 050",
+      "message": "Changed hard drive on workstation 002",
       "attention": false,
-      "date": "03-2-2019",
-      "tech": "Sara Wilson"
+      "teck": "Sam Smith",
+      "date": "2021-05-07T16:32:13.288Z",
+      "id": 2
     }
   ],
   "tecks": [

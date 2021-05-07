@@ -7,6 +7,9 @@ import AddLogModal from './components/logs/AddLogModal'
 import EditLogModal from './components/logs/EditLogModal'
 import AddTeckModal from './components/tecks/AddTeckmodal'
 
+import { Provider } from 'react-redux'
+import store from './store'
+
 import 'materialize-css/dist/css/materialize.min.css'
 import M from 'materialize-css'
 
@@ -16,17 +19,19 @@ const App = () => {
     M.AutoInit()
   })
   return (
-    <Fragment>
-      <SearchBar />
-      <div className="container">
-        <AddBtn />
-        <AddLogModal />
-        <EditLogModal />
-        <AddTeckModal />
-        <Logs />
-        <Tecks />
-      </div>
-    </Fragment>
+    <Provider store={store}>
+      <Fragment>
+        <SearchBar />
+        <div className="container">
+          <AddBtn />
+          <AddLogModal />
+          <EditLogModal />
+          <AddTeckModal />
+          <Logs />
+          <Tecks />
+        </div>
+      </Fragment>
+    </Provider>
   );
 }
 

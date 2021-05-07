@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import M from 'materialize-css'
+import { connect } from 'react-redux'
 
-const AddLogModal = () => {
+import { addLog } from '../../store/actions/logActions'
+
+const AddLogModal = ({ addLog }) => {
   const [message, setMessage] = useState('')
   const [attention, setAttention] = useState(false)
   const [teck, setTeck] = useState('')
@@ -10,7 +13,15 @@ const AddLogModal = () => {
     if (!message.trim() || !teck) {
       M.toast({ html: 'Please enter a message and teck' })
     } else {
-      console.log([message, teck, attention])
+      const log = {
+        message,
+        attention,
+        teck,
+        date: new Date()
+      }
+      addLog(log)
+
+      M.toast({ html: `Log added bu ${teck}` })
       // clear fields
       setMessage('')
       setTeck('')
@@ -62,7 +73,7 @@ const AddLogModal = () => {
                   className="filled-in"
                   checked={attention}
                   value={attention}
-                  onChange={e => setAttention(!attention)}
+                  onChange={() => setAttention(!attention)}
                 />
                 <span>Needs Attention</span>
               </label>
@@ -71,13 +82,12 @@ const AddLogModal = () => {
         </div>
       </div>
       <div className="modal-footer">
-        <a
-          href="#!"
+        <button
           onClick={onSubmitHandler}
           className="modal-close waves-effect waves-green btn blue"
         >
           Enter
-        </a>
+        </button>
       </div>
     </div>
   )
@@ -88,4 +98,4 @@ const modalStyle = {
   height: '75%'
 }
 
-export default AddLogModal
+export default connect(null, { addLog })(AddLogModal)
