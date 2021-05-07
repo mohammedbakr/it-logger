@@ -1,1 +1,6 @@
-export { getLogs } from './logActions'
+export {
+  getLogs,
+  deleteLog,
+  setCurrent,
+  updateLog
+} from './logActions'

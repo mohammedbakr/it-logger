@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import M from 'materialize-css'
 
-import { deleteLog } from '../../store/actions/logActions'
+import * as action from '../../store/actions'
 
-const Log = ({ log, deleteLog }) => {
+const Log = ({ log, deleteLog, setCurrent }) => {
   const onDelete = () => {
     deleteLog(log.id)
 
@@ -14,10 +14,11 @@ const Log = ({ log, deleteLog }) => {
   }
   return (
     <li className="collection-item">
-      <div style={{marginBottom: '10px'}}>
+      <div style={{marginBottom: '15px'}}>
         <a
           href="#edit-log-modal"
           className={`modal-trigger ${log.attention ? 'red-text' : 'blue-text'}`}
+          onClick={() => setCurrent(log)}
         >
           {log.message}
         </a>
@@ -39,4 +40,9 @@ Log.prototype = {
   log: PropTypes.object.isRequired,
 }
 
-export default connect(null, { deleteLog })(Log)
+const mapdispatchToProps = dispatch => ({
+  deleteLog: (id) => dispatch(action.deleteLog(id)),
+  setCurrent: (log) => dispatch(action.setCurrent(log))
+})
+
+export default connect(null, mapdispatchToProps)(Log)

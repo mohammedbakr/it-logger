@@ -1,21 +1,14 @@
 {
   "logs": [
     {
+      "id": 1,
       "message": "Changed hard drive on workstation 005",
       "attention": true,
-      "teck": "John Doe",
-      "date": "2021-05-07T16:31:56.547Z",
-      "id": 1
-    },
-    {
-      "message": "Changed hard drive on workstation 002",
-      "attention": false,
-      "teck": "Sam Smith",
-      "date": "2021-05-07T16:32:13.288Z",
-      "id": 2
+      "tech": "Sam Smith",
+      "date": "2021-05-07T21:42:53.673Z"
     }
   ],
-  "tecks": [
+  "techs": [
     {
       "id": 1,
       "firstName": "John",

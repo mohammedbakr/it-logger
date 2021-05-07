@@ -1,10 +1,13 @@
 /* eslint-disable import/no-anonymous-default-export */
 import {
   ADD_LOG,
+  CLEAR_CURRENT,
   DELETE_LOG,
   GET_LOGS,
   LOGS_ERROR,
-  SET_LOADING
+  SET_CURRENT,
+  SET_LOADING,
+  UPDATE_LOG
 } from "../actions/types"
 
 const initialState = {
@@ -28,11 +31,26 @@ export default (state = initialState, action) => {
         loading: false,
         logs: [...state.logs, action.payload]
       }
+    case UPDATE_LOG:
+      return {
+        ...state,
+        logs: state.logs.map(log => log.id === action.payload.id ? action.payload : log)
+      }
     case DELETE_LOG:
       return {
         ...state,
         loading: false,
         logs: state.logs.filter(log => log.id !== action.payload)
+      }
+    case SET_CURRENT:
+      return {
+        ...state,
+        current: action.payload
+      }
+    case CLEAR_CURRENT:
+      return {
+        ...state,
+        current: null
       }
     case SET_LOADING:
       return {
