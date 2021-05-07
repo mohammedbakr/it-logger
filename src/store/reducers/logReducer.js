@@ -5,6 +5,7 @@ import {
   DELETE_LOG,
   GET_LOGS,
   LOGS_ERROR,
+  SEARCH_LOGS,
   SET_CURRENT,
   SET_LOADING,
   UPDATE_LOG
@@ -41,6 +42,12 @@ export default (state = initialState, action) => {
         ...state,
         loading: false,
         logs: state.logs.filter(log => log.id !== action.payload)
+      }
+    case SEARCH_LOGS:
+      return {
+        ...state,
+        loading: false,
+        logs: action.payload
       }
     case SET_CURRENT:
       return {
