@@ -1,6 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import {
   ADD_LOG,
+  DELETE_LOG,
   GET_LOGS,
   LOGS_ERROR,
   SET_LOADING
@@ -26,6 +27,12 @@ export default (state = initialState, action) => {
         ...state,
         loading: false,
         logs: [...state.logs, action.payload]
+      }
+    case DELETE_LOG:
+      return {
+        ...state,
+        loading: false,
+        logs: state.logs.filter(log => log.id !== action.payload)
       }
     case SET_LOADING:
       return {
