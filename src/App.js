@@ -1,11 +1,11 @@
 import { Fragment, useEffect } from 'react'
 import SearchBar from './components/layout/SearchBar'
 import Logs from './components/logs/Logs'
-import Tecks from './components/tecks/Tecks'
+import Techs from './components/techs/Techs'
 import AddBtn from './components/layout/AddBtn'
 import AddLogModal from './components/logs/AddLogModal'
 import EditLogModal from './components/logs/EditLogModal'
-import AddTeckModal from './components/tecks/AddTeckmodal'
+import AddTechModal from './components/techs/AddTechModal'
 
 import { Provider } from 'react-redux'
 import store from './store'
@@ -26,9 +26,9 @@ const App = () => {
           <AddBtn />
           <AddLogModal />
           <EditLogModal />
-          <AddTeckModal />
+          <AddTechModal />
           <Logs />
-          <Tecks />
+          <Techs />
         </div>
       </Fragment>
     </Provider>

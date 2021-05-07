@@ -4,16 +4,16 @@ import M from 'materialize-css'
 const EditLogModal = () => {
   const [message, setMessage] = useState('')
   const [attention, setAttention] = useState(false)
-  const [teck, setTeck] = useState('')
+  const [tech, setTech] = useState('')
 
   const onSubmitHandler = () => {
-    if (!message.trim() || !teck) {
-      M.toast({ html: 'Please enter a message and teck' })
+    if (!message.trim() || !tech) {
+      M.toast({ html: 'Please enter a message and tech' })
     } else {
-      console.log([message, teck, attention])
+      console.log([message, tech, attention])
       // clear fields
       setMessage('')
-      setTeck('')
+      setTech('')
       setAttention(false)
     }
   }
@@ -42,10 +42,10 @@ const EditLogModal = () => {
         <div className="row">
           <div className="input-field">
             <select
-              name="teck"
-              value={teck}
+              name="tech"
+              value={tech}
               className="browser-default"
-              onChange={e => setTeck(e.target.value)}
+              onChange={e => setTech(e.target.value)}
             >
               <option value="" disabled>select Technician</option>
               <option value="John Doe">John Doe</option>

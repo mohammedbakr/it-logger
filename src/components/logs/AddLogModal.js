@@ -7,24 +7,24 @@ import { addLog } from '../../store/actions/logActions'
 const AddLogModal = ({ addLog }) => {
   const [message, setMessage] = useState('')
   const [attention, setAttention] = useState(false)
-  const [teck, setTeck] = useState('')
+  const [tech, setTech] = useState('')
 
   const onSubmitHandler = () => {
-    if (!message.trim() || !teck) {
-      M.toast({ html: 'Please enter a message and teck' })
+    if (!message.trim() || !tech) {
+      M.toast({ html: 'Please enter a message and tech' })
     } else {
       const log = {
         message,
         attention,
-        teck,
+        tech,
         date: new Date()
       }
       addLog(log)
 
-      M.toast({ html: `Log added bu ${teck}` })
+      M.toast({ html: `Log added bu ${tech}` })
       // clear fields
       setMessage('')
-      setTeck('')
+      setTech('')
       setAttention(false)
     }
   }
@@ -53,10 +53,10 @@ const AddLogModal = ({ addLog }) => {
         <div className="row">
           <div className="input-field">
             <select
-              name="teck"
-              value={teck}
+              name="tech"
+              value={tech}
               className="browser-default"
-              onChange={e => setTeck(e.target.value)}
+              onChange={e => setTech(e.target.value)}
             >
               <option value="" disabled>select Technician</option>
               <option value="John Doe">John Doe</option>
