@@ -1,24 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
 import Tech from './Tech'
 
-const Techs = () => {
-  const [techs, setTechs] = useState([])
-  const [loading, setLoading] = useState(false)
+import { getTechs } from '../../store/actions/techActions'
+
+const Techs = ({ tech: { techs, loading }, getTechs }) => {
 
   useEffect(() => {
-    fetchTechs()
+    getTechs()
     // eslint-disable-next-line
   }, [])
-
-  const fetchTechs = async () => {
-    setLoading(true)
-
-    const res = await fetch('/techs')
-    const data = await res.json()
-
-    setTechs(data)
-    setLoading(false)
-  }
 
   return (
     <div id="tech-list-modal" className="modal">
@@ -34,4 +25,8 @@ const Techs = () => {
   )
 }
 
-export default Techs
+const mapStateToProps = state => ({
+  tech: state.tech
+})
+
+export default connect(mapStateToProps, { getTechs })(Techs)

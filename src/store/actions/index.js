@@ -2,5 +2,10 @@ export {
   getLogs,
   deleteLog,
   setCurrent,
-  updateLog
+  updateLog,
+  addLog
 } from './logActions'
+
+export {
+  getTechs
+} from './techActions'

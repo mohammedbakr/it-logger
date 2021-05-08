@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import M from 'materialize-css'
 
-const AddTechModal = () => {
+import { addTech } from '../../store/actions/techActions'
+import { connect } from 'react-redux'
+
+const AddTechModal = ({ addTech }) => {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
 
@@ -9,7 +12,13 @@ const AddTechModal = () => {
     if (!firstName.trim() || !lastName.trim()) {
       M.toast({ html: 'Please enter the first and last name' })
     } else {
-      console.log([firstName, lastName])
+      const tech = {
+        firstName,
+        lastName
+      }
+      addTech(tech)
+
+      M.toast({ html: 'Tech added successfully' })
       // clear fields
       setLastName('')
       setFirstName('')
@@ -50,16 +59,15 @@ const AddTechModal = () => {
         </div>
       </div>
       <div className="modal-footer">
-        <a
-          href="#!"
+        <button
           onClick={onSubmitHandler}
           className="modal-close waves-effect waves-green btn blue"
         >
           Enter
-        </a>
+        </button>
       </div>
     </div>
   )
 }
 
-export default AddTechModal
+export default connect(null, { addTech })(AddTechModal)
