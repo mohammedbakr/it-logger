@@ -1,18 +1,14 @@
-import { useEffect, useState } from 'react'
-import M from 'materialize-css'
+import { useState } from 'react'
+import TechSelectOptions from '../techs/TechSelectOptions'
 import { connect } from 'react-redux'
+import M from 'materialize-css'
 
 import * as action from '../../store/actions'
 
-const AddLogModal = ({ tech: { techs }, addLog, getTechs }) => {
+const AddLogModal = ({ addLog }) => {
   const [message, setMessage] = useState('')
   const [attention, setAttention] = useState(false)
   const [tech, setTech] = useState('')
-
-  useEffect(() => {
-    getTechs()
-    // eslint-disable-next-line
-  }, [])
 
   const onSubmitHandler = () => {
     if (!message.trim() || !tech) {
@@ -64,9 +60,7 @@ const AddLogModal = ({ tech: { techs }, addLog, getTechs }) => {
               onChange={e => setTech(e.target.value)}
             >
               <option value="" disabled>select Technician</option>
-              {
-                techs.map(tech => <option value={`${tech.firstName} ${tech.lastName}`}>{tech.firstName} {tech.lastName}</option>)
-              }
+              <TechSelectOptions />
             </select>
           </div>
         </div>
@@ -103,13 +97,8 @@ const modalStyle = {
   height: '75%'
 }
 
-const mapStateToProps = state => ({
-  tech: state.tech
-})
-
 const mapDispatchToProps = dispatch => ({
-  addLog: (log) => dispatch(action.addLog(log)),
-  getTechs: () => dispatch(action.getTechs())
+  addLog: (log) => dispatch(action.addLog(log))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddLogModal)
+export default connect(null, mapDispatchToProps)(AddLogModal)

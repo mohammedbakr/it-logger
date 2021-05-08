@@ -3,6 +3,7 @@ import M from 'materialize-css'
 import { connect } from 'react-redux'
 
 import * as action from '../../store/actions'
+import TechSelectOptions from '../techs/TechSelectOptions'
 
 const EditLogModal = ({ current, updateLog }) => {
   const [message, setMessage] = useState('')
@@ -65,9 +66,7 @@ const EditLogModal = ({ current, updateLog }) => {
               onChange={e => setTech(e.target.value)}
             >
               <option value="" disabled>select Technician</option>
-              <option value="John Doe">John Doe</option>
-              <option value="Sam Smith">Sam Smith</option>
-              <option value="Sara Wilson">Sara Wilson</option>
+              <TechSelectOptions />
             </select>
           </div>
         </div>
@@ -88,13 +87,12 @@ const EditLogModal = ({ current, updateLog }) => {
         </div>
       </div>
       <div className="modal-footer">
-        <a
-          href="#!"
+        <button
           onClick={onSubmitHandler}
           className="modal-close waves-effect waves-green btn blue"
         >
           Enter
-        </a>
+        </button>
       </div>
     </div>
   )

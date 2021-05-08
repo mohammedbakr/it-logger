@@ -4,15 +4,15 @@
       "id": 1,
       "message": "Changed hard drive on workstation 005",
       "attention": true,
-      "tech": "Sam Smith",
-      "date": "2021-05-07T21:42:53.673Z"
+      "tech": "John Doe",
+      "date": "2021-05-08T01:29:56.913Z"
     },
     {
-      "message": "hi",
+      "id": 2,
+      "message": "fixed hard drive",
       "attention": false,
-      "tech": "Sam",
-      "date": "2021-05-07T23:55:00.687Z",
-      "id": 2
+      "tech": "Sara Wilson",
+      "date": "2021-05-08T01:30:34.213Z"
     }
   ],
   "techs": [
@@ -23,18 +23,13 @@
     },
     {
       "id": 2,
-      "firstName": "Sam",
-      "lastName": "Smith"
-    },
-    {
-      "id": 3,
       "firstName": "Sara",
       "lastName": "Wilson"
     },
     {
-      "firstName": "Mohamed",
-      "lastName": "Sarhan",
-      "id": 4
+      "id": 3,
+      "firstName": "Sam",
+      "lastName": "Smith"
     }
   ]
 }
